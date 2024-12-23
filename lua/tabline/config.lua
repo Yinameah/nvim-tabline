@@ -10,6 +10,13 @@ local default = {
     right_separator = false,
     show_index = false,
     show_icon = true,
+    show_window_count = {
+        enable = false,
+        show_if_alone = false, -- do not show count if unique win in a tab
+        count_unique_buf = true, -- count only win showing different buffers
+        count_others = true, -- display [+x] where x is the number of other windows
+        buftype_blacklist = { 'nofile' }, -- do not count if buftype among theses
+    },
 }
 
 local config = {}
