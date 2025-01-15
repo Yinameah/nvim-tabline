@@ -1,5 +1,6 @@
 local M = {}
 local config = require('tabline.config')
+local desambiguate = require('tabline.desambiguition').desambiguate
 
 M.get_hl = function(group, item, index, modified)
     if item == '' then
@@ -17,15 +18,21 @@ M.get_hl = function(group, item, index, modified)
     return '%#' .. group .. '#' .. item .. '%*'
 end
 
-M.get_tabname = function(bufname, index)
+local tabnames = {}
+
+M.update_tabnames = function()
+    for i, winid in ipairs(vim.api.nvim_list_wins()) do
+        tabnames[i] = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(winid))
+    end
+    tabnames = desambiguate(tabnames)
+end
+
+M.get_tabname = function(index)
     local title = vim.fn.gettabvar(index, 'TablineTitle')
     if title ~= vim.NIL and title ~= '' then
         return title
     end
-    if bufname == '' then
-        return config.get('no_name')
-    end
-    return vim.fn.fnamemodify(bufname, ':t')
+    return tabnames[index]
 end
 
 local is_focusable = function(win_id)

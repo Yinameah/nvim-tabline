@@ -14,7 +14,7 @@ local gen_item = function(index, max_len)
     local bufnr = vim.fn.tabpagebuflist(index)[winnr]
     local bufname = vim.fn.bufname(bufnr)
     local bufmodified = vim.fn.getbufvar(bufnr, '&mod') == 1
-    local tabname = utils.get_tabname(bufname, index)
+    local tabname = utils.get_tabname(index)
     local extension = vim.fn.fnamemodify(bufname, ':e')
     local tabpage_handle = vim.api.nvim_list_tabpages()[index]
 
@@ -182,6 +182,7 @@ end
 
 local tabline = function()
     local last_index = vim.fn.tabpagenr('$')
+    utils.update_tabnames()
 
     -- Generate all items, keep trace of size. Store the minimal len in case we need to truncate
     local items = {}
