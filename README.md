@@ -14,6 +14,8 @@ Original author considered (rightfully) that it was not in the spirit of this ve
 
 Over the top algorithm that truncate the tabline when it's too long to be displayed fully.
 
+![402458796-aab1dd8a-0fd6-42ad-948f-4538d41e061e](https://github.com/user-attachments/assets/4e1b7e45-7248-4b89-93f0-4949a5dcc9d9)
+
 ## Requirements
 
 - Neovim 0.7+
