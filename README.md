@@ -1,8 +1,18 @@
 # nvim-tabline
 
-Simple tabline in lua
+This is a fork of the simple and nice [seblj/nvim-tabline](https://github.com/seblj/nvim-tabline)
+
+I did quite some refactoring to support some new features and for the pleasure of hacking a bit on neovim plugin.
+
+Original author considered (rightfully) that it was not in the spirit of this very simple plugin. I recommend his work as a very initiation to neovim plugin.
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/5160701/112813955-11465380-907f-11eb-93ae-b828ccb23a76.gif)
+
+## Changes
+
+### Tab truncation
+
+Over the top algorithm that truncate the tabline when it's too long to be displayed fully.
 
 ## Requirements
 
@@ -15,7 +25,7 @@ Simple tabline in lua
 ### packer.nvim
 
 ```lua
-use({ 'seblj/nvim-tabline', requires = { 'nvim-tree/nvim-web-devicons' } })
+use({ 'Yineameh/nvim-tabline', requires = { 'nvim-tree/nvim-web-devicons' } })
 ```
 
 ### vim-plug
@@ -23,7 +33,7 @@ use({ 'seblj/nvim-tabline', requires = { 'nvim-tree/nvim-web-devicons' } })
 ```vim
 call plug#begin()
 
-Plug 'seblj/nvim-tabline'
+Plug 'Yineameh/nvim-tabline'
 Plug 'nvim-tree/nvim-web-devicons'             " Optional
 
 call plug#end()
@@ -33,7 +43,7 @@ call plug#end()
 
 ```lua
 return {
-    "seblj/nvim-tabline",
+    "Yineameh/nvim-tabline",
     dependencies = { "nvim-tree/nvim-web-devicons" }, -- Optional
     opts = {
         ... -- see options below
