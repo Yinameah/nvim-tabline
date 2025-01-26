@@ -4,7 +4,7 @@ This is a fork of the simple and nice [seblj/nvim-tabline](https://github.com/se
 
 I did quite some refactoring to support some new features and for the pleasure of hacking a bit on neovim plugin.
 
-Original author considered (rightfully) that it was not in the spirit of this very simple plugin. I recommend his work as a very initiation to neovim plugin.
+Original author considered (rightfully) that it was not in the spirit of this very simple plugin. I recommend his work as a very nice initiation to neovim plugin.
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/5160701/112813955-11465380-907f-11eb-93ae-b828ccb23a76.gif)
 
@@ -15,6 +15,11 @@ Original author considered (rightfully) that it was not in the spirit of this ve
 Over the top algorithm that truncate the tabline when it's too long to be displayed fully.
 
 ![402458796-aab1dd8a-0fd6-42ad-948f-4538d41e061e](https://github.com/user-attachments/assets/4e1b7e45-7248-4b89-93f0-4949a5dcc9d9)
+
+### File disambiguation
+
+If the same filename appear multiple time in the tabs (but it's not the same file), 
+path elements going up the file tree will be added until every tab name is unique.
 
 ## Requirements
 
