@@ -22,7 +22,9 @@ local tabnames = {}
 
 M.update_tabnames = function()
     for i, winid in ipairs(vim.api.nvim_list_wins()) do
-        tabnames[i] = vim.api.nvim_buf_get_name(vim.api.nvim_win_get_buf(winid))
+        local bufnr = vim.api.nvim_win_get_buf(winid)
+        local bufname = vim.api.nvim_buf_get_name(bufnr)
+        tabnames[i] = vim.fs.normalize(bufname)
     end
     tabnames = desambiguate(tabnames)
 end

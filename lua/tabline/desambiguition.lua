@@ -2,7 +2,6 @@ local M = {}
 
 local config = require('tabline.config')
 
--- TODO : test on windows
 local split_path = function(name)
     local elems = vim.split(name, '/', { trimempty = false })
     local path_elems = {}
