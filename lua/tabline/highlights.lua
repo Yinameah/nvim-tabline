@@ -2,7 +2,7 @@ local M = {}
 
 M.get_color = function(group, attr)
     local color = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID(group)), attr)
-    return color ~= '' and color or nil
+    return color ~= '' and tonumber(color) or nil
 end
 
 M.c = {
