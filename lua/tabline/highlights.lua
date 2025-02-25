@@ -2,7 +2,7 @@ local M = {}
 
 M.get_color = function(group, attr)
     local color = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID(group)), attr)
-    return color ~= '' and tonumber(color) or nil
+    return color ~= '' and color or nil
 end
 
 M.c = {
@@ -19,7 +19,10 @@ end
 local hi = function(colors)
     for name, opts in pairs(colors) do
         opts.default = true
-        vim.api.nvim_set_hl(0, name, opts)
+        local ok, _ = pcall(vim.api.nvim_set_hl, 0, name, opts)
+        if not ok then
+            print('Unable to set color for', name, 'Maybe try to set termguicolors...')
+        end
     end
 end
 
